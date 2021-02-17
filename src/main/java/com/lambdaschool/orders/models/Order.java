@@ -22,12 +22,13 @@ public class Order
 
     @ManyToOne
     @JoinColumn(name = "custcode", nullable = false)
-    @JsonIgnoreProperties("orders")
+    @JsonIgnoreProperties(value = "orders", allowSetters = true)  // takes care of infinite loop on get customers by id
     private Customer customer;
 
     private String orderdescription;
 
     @ManyToMany(mappedBy = "orders")
+    @JsonIgnoreProperties(value = "orders", allowSetters = true) // takes care of infinite loop on get customers by id
     private Set<Payment> payments = new HashSet<>();
 
     // CONSTRUCTORS

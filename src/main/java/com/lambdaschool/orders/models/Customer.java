@@ -32,7 +32,7 @@ public class Customer
     //fields with relationships (one to many and many to many)
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonIgnoreProperties(value = "customer", allowSetters = true)
+    @JsonIgnoreProperties(value = "customers", allowSetters = true)
     private List<Order> orders = new ArrayList<>();
 
 
