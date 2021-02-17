@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,5 +31,13 @@ public class CustomerServiceImpl implements CustomerServices
         customersRepository.findAll().iterator().forEachRemaining(customerOrdersList::add);
 
         return customerOrdersList;
+    }
+
+    @Override
+    public Customer findCustomerById(long id)
+    {
+        Customer customer = customersRepository.findById(id)
+            .orElseThrow(()-> new EntityNotFoundException("Customer "+ id +" Not Found"));  //handles if id doesnt exist
+        return customer;
     }
 }

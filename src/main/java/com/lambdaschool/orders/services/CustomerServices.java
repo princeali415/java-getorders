@@ -8,5 +8,8 @@ public interface CustomerServices
 {
     public Customer save(Customer customer);
 
-    List<Customer> findAllCustomerOrders();
+    List<Customer> findAllCustomerOrders(); //get all customers by order method
+
+    Customer findCustomerById(long id);
+
 }
