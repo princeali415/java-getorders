@@ -40,4 +40,14 @@ public class CustomerServiceImpl implements CustomerServices
             .orElseThrow(()-> new EntityNotFoundException("Customer "+ id +" Not Found"));  //handles if id doesnt exist
         return customer;
     }
+
+    @Override
+    public Customer findCustomerByCustname(String name)
+    {
+        Customer customer = customersRepository.findCustomerByCustname(name);
+        if(customer == null) {
+            throw new EntityNotFoundException("Customer "+ name +" Not Found");
+        }
+        return customer;
+    }
 }

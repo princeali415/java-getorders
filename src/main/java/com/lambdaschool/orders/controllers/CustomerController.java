@@ -36,9 +36,13 @@ public class CustomerController
         return new ResponseEntity<>(customer, HttpStatus.OK);
     }
 
-
-    //http://localhost:2019/customers/customer/77
-
+    //http://localhost:2019/customers/name/{custname}
+    @GetMapping(value = "/name/{custname}", produces = "application/json")
+    public ResponseEntity<?> findCustomerByName(@PathVariable String custname)
+    {
+        Customer customer = customerServices.findCustomerByCustname(custname);
+        return new ResponseEntity<>(customer, HttpStatus.OK);
+    }
 
 
     //http://localhost:2019/customers/namelike/mes

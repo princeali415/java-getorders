@@ -10,6 +10,8 @@ public interface CustomerServices
 
     List<Customer> findAllCustomerOrders(); //get all customers by order method
 
-    Customer findCustomerById(long id);
+    Customer findCustomerById(long id); // get customer by id
+
+    Customer findCustomerByCustname(String name);   // get customer by name
 
 }
