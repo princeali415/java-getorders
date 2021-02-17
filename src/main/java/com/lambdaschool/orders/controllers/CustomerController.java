@@ -45,12 +45,13 @@ public class CustomerController
     }
 
 
-    //http://localhost:2019/customers/namelike/mes
-
-
-
-    //http://localhost:2019/customers/namelike/cin
-
+    //http://localhost:2019/customers/namelike/{subname}
+    @GetMapping(value = "/namelike/{subname}", produces = "application/json")
+    public ResponseEntity<?> findCustomerByLikeName(@PathVariable String subname)
+    {
+        List<Customer> customerList = customerServices.findCustomerByLikeName(subname);
+        return new ResponseEntity<>(customerList, HttpStatus.OK);
+    }
 
 
 }

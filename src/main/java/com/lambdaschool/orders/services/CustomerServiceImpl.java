@@ -50,4 +50,11 @@ public class CustomerServiceImpl implements CustomerServices
         }
         return customer;
     }
+
+    @Override
+    public List<Customer> findCustomerByLikeName(String subname)
+    {
+        List<Customer> customerList = customersRepository.findCustomerByCustnameContainingIgnoringCase(subname);
+        return customerList;
+    }
 }
