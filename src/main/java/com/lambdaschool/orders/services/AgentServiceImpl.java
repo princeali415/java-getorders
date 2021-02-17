@@ -32,10 +32,3 @@ public class AgentServiceImpl implements AgentServices
     }
 }
 
-//    @Override
-//    public Customer findCustomerById(long id)
-//    {
-//        Customer customer = customersRepository.findById(id)
-//            .orElseThrow(()-> new EntityNotFoundException("Customer "+ id +" Not Found"));  //handles if id doesnt exist
-//        return customer;
-//    }
